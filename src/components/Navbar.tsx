@@ -15,7 +15,7 @@ const Navbar = ({ cartCount }: { cartCount: number }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const { user } = useSelector((state: RootState) => state.auth);
- 
+
 
 
   return (
@@ -196,6 +196,20 @@ const Navbar = ({ cartCount }: { cartCount: number }) => {
                 </NavLink>
               </li>
             </ul>
+
+            {/* Icon Section */}
+            <div className=" flex justify-center items-center space-x-5 mt-5">
+              <NavLink to={user ? "/dashboard" : "/login"}>
+                {user ? <Button > Dashboard</Button> : <User size={25} className="text-white hover:text-blue-500 cursor-pointer" />}
+              </NavLink>
+              <NavLink to="/checkout">
+                <Badge count={cartCount} size="small">
+                  <ShoppingCart className="text-white hover:text-blue-500 cursor-pointer" />
+                </Badge>
+              </NavLink>
+              <ThemeToggle />
+            </div>
+
           </div>
         )}
       </div>

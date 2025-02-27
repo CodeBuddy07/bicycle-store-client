@@ -17,7 +17,7 @@ export const bicycleApi = apiSlice.injectEndpoints({
     getBicycle: builder.query({
       query: (id) => `/products/${id}`,
       providesTags: ["Products"],
-      async onQueryStarted(args, {queryFulfilled }) {
+      async onQueryStarted({queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
 

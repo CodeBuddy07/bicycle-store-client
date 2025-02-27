@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
 
 import { useParams, useNavigate } from "react-router-dom";
@@ -110,7 +111,8 @@ const UpdateBicycle = () => {
         <label className="block font-semibold">Upload Images (Max 5)</label>
         <input type="file" multiple accept="image/*" onChange={handleFileChange} className="w-full p-2 border rounded" />
         <div className="flex space-x-2 mt-2">
-          {bicycle?.photos?.map((photo, index) => (
+
+          {bicycle?.photos?.map((photo:any, index: number) => (
             <img key={index} src={photo} alt={`Bike ${index}`} className="w-20 h-20 object-cover rounded-md shadow-md" />
           ))}
         </div>

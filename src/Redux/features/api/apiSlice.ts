@@ -3,7 +3,7 @@ import { RootState } from "../../store";
 import { logout } from "./authSlice"; // Ensure correct import
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:3000/api",
+  baseUrl: "https://bi-cycle-strore-server.vercel.app/api",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token; // Get token from Redux state
     if (token) {
